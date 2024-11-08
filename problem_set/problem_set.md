@@ -40,7 +40,7 @@ We will now adapt the pre-trained model on the target domain using the LoRA algo
 
 * Construct a new model class by inheriting all the layers from the pre-trained model. In addition, for each layer, add a new LoRA layer that consist of matrix A and matrix B. Initialize matrix A and matrix B with the identity matrix. Use the formula in the LoRA paper to calculate the output of the LoRA layer. The new class should have 2 hyper-parameters: rank and alpha. The rank hyper-parameter specifies the rank of the low-rank approximation, and the alpha hyper-parameter, default as 1, specifies the weight of the adaptation regularization term.
 
-* Similar to the C part, train the adapted model on the target domain using the target training dataloader. Use the AdamW optimizer with a learning rate of 1e-3 and 10 epochs. Use nll_loss as the loss function. For each epoch, calculate the validation loss and accuracy on the target test dataloader. The only difference is that you should use [8, 16, 32] as the rank hyper-parameter. 
+* Similar to the C part, train the adapted model on the target domain using the target training dataloader. Use the AdamW optimizer with a learning rate of 1e-3 and 10 epochs. Use nll_loss as the loss function. For each epoch, calculate the validation loss and accuracy on the target test dataloader. The only difference is that you should use [8, 16] as the rank hyper-parameter. 
 
 * For each rank, print the test loss and test accuracy.
 
